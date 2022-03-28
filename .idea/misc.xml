@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/MyAccount/Desktop/14-Room/app/src/main/res/drawable/corners.xml" value="0.1" />
         <entry key="..\:/Users/MyAccount/Desktop/14-Room/app/src/main/res/layout/activity_main.xml" value="0.196875" />
+        <entry key="..\:/Users/MyAccount/Desktop/14-Room/app/src/main/res/layout/items.xml" value="0.2" />
       </map>
     </option>
   </component>

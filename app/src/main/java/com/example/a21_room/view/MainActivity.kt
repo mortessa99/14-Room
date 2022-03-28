@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.a21_room.R
 import com.example.a21_room.databinding.ActivityMainBinding
 import com.example.a21_room.model.UserDatabase
 import com.example.a21_room.model.UserRepository
+import com.example.a21_room.utility.UserAdapter
 import com.example.a21_room.viewmodel.UserViewModel
 import com.example.a21_room.viewmodel.UserViewModelFactory
 
@@ -28,13 +30,15 @@ class MainActivity : AppCompatActivity() {
         binding.myViewModel = userViewModel
         binding.lifecycleOwner = this
         ///////////////////////////////////////////////
-
-
-
-
-
-
-
-
+        initRecyclerView()
     }
+
+    private fun initRecyclerView(){
+        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        loadUsersFromDatabase()
+    }
+
+     private fun loadUsersFromDatabase() {
+        userViewModel.users.observe(this) { binding.recyclerView.adapter = UserAdapter(it) }
+     }
 }
