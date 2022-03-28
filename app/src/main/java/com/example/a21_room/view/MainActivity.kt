@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.a21_room.R
 import com.example.a21_room.databinding.ActivityMainBinding
+import com.example.a21_room.model.User
 import com.example.a21_room.model.UserDatabase
 import com.example.a21_room.model.UserRepository
 import com.example.a21_room.utility.UserAdapter
@@ -39,6 +40,11 @@ class MainActivity : AppCompatActivity() {
     }
 
      private fun loadUsersFromDatabase() {
-        userViewModel.users.observe(this) { binding.recyclerView.adapter = UserAdapter(it) }
+        userViewModel.users.observe(this) { binding.recyclerView.adapter = UserAdapter(it,
+            { userItem: User -> rowItemClicked(userItem) }) }
      }
+
+    private fun rowItemClicked(user: User){
+        userViewModel.initUpdateOrDelete(user)
+    }
 }
